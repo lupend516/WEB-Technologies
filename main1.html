@@ -8,8 +8,30 @@
    body {
      font-family: Arial, sans-serif;
    }
+   nav {
+     background-color: #333;
+     padding: 10px 0;
+   }
+   nav ul {
+     list-style: none;
+     margin: 0;
+     padding: 0;
+     text-align: center;
+   }
+   nav ul li {
+     display: inline;
+     margin: 0 15px;
+   }
+   nav ul li a {
+     color: white;
+     text-decoration: none;
+     font-size: 18px;
+   }
+   nav ul li a:hover {
+     text-decoration: underline;
+   }
    form {
-     margin: 0 auto;
+     margin: 20px auto;
      width: 50%;
      padding: 20px;
      background-color: #f2f2f2;
@@ -50,9 +72,21 @@
  </style>
 </head>
 <body>
+
  <header>
    <h1 style="text-align: center;">An Online Platform for Booking Physical Education Classes</h1>
  </header>
+
+ <!-- Navigation Menu -->
+ <nav>
+   <ul>
+     <li><a href="#armwrestling">Armwrestling</a></li>
+     <li><a href="#football">Football</a></li>
+     <li><a href="#basketball">Basketball</a></li>
+     <li><a href="#volleyball">Volleyball</a></li>
+     <li><a href="#fitness">Fitness</a></li>
+   </ul>
+ </nav>
 
  <main>
    <p>Welcome to our platform! Please fill out the form below to reserve your spot in one of our upcoming physical education sessions:</p>
@@ -66,7 +100,6 @@
 
      <label for="segroup">Group:</label>
      <select id="segroup" name="segroup" required>
-       <!-- Options for groups -->
        <option value="SE-2301">SE-2301</option>
        <!-- Add other options here -->
      </select>
@@ -87,46 +120,4 @@
        <option value="armwrestling">Armwrestling</option>
        <option value="football">Football</option>
        <option value="basketball">Basketball</option>
-       <option value="volleyball">Volleyball</option>
-       <option value="fitness">Fitness</option>
-     </select>
-
-     <label for="time">Time:</label>
-     <select id="time" name="time" required>
-       <option value="10:00-11:50">10:00 - 11:50</option>
-       <option value="12:00-13:50">12:00 - 13:50</option>
-       <option value="14:00-15:50">14:00 - 15:50</option>
-       <option value="16:00-17:50">16:00 - 17:50</option>
-     </select>
-
-     <h3>If you have any questions or suggestions, please write below:</h3>
-     <label>
-       <textarea rows="4" name="message"></textarea>
-     </label>
-
-     <input type="reset" value="Reset">
-     <input type="submit" value="Submit">
-   </form>
-
-   <h4>Contact us:</h4>
-   <table>
-     <tr>
-       <th>Name</th>
-       <th>Phone</th>
-       <th>Email</th>
-     </tr>
-     <tr>
-       <td>Sultanbay.T</td>
-       <td>87051110101</td>
-       <td>sultan123@mail.ru</td>
-     </tr>
-     <!-- Add more contact info as needed -->
-   </table>
- </main>
-
- <footer>
-   <p>Team members: Sultanbay.T, Assanali.B, Daryn.M</p>
-   <p>&copy; 2024 PE Booking System</p>
- </footer>
-</body>
-</html>
+       <option value
