@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="styles.css">
+  <title>Daryn Huesos</title>
+</head>
+<body>
+  <header>
+    <h1 class="header-section">An Online Platform for Booking Physical Education Classes</h1>
+    <nav>
+      <ul class="nav-list">
+        <li class="nav-item"><a href="/Armwrestling" class="nav-link">Armwrestling</a></li>
+        <li class="nav-item"><a href="/Basketball" class="nav-link">Basketball</a></li>
+        <li class="nav-item"><a href="/form" class="nav-link">Registration on FE</a></li>
+        <li class="nav-item"><a href="/Fitness" class="nav-link">Fitness</a></li>
+        <li class="nav-item"><a href="/Volleyball" class="nav-link">Volleyball</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <p class="intro-text">Welcome to our platform! Please fill out the form below to reserve your spot in one of our upcoming physical education sessions:</p>
+      <form action="/submit" method="post" class="registration-form">
+        <label for="fname" class="form-label">Name:</label>
+        <input type="text" id="fname" name="fname" class="form-input" placeholder="Type here" required>
+
+        <label for="lname" class="form-label">Surname:</label>
+        <input type="text" id="lname" name="lname" class="form-input" placeholder="Type here" required>
+
+        <label for="segroup" class="form-label">Group:</label>
+        <select id="segroup" name="segroup" class="form-select" required>
+          <option value="SE-2301">SE-2301</option>
+          <!-- Add other options here -->
+        </select>
+
+        <label for="weekday" class="form-label">Weekday:</label>
+        <select id="weekday" name="weekday" class="form-select" required>
+          <option value="monday">Monday</option>
+          <option value="tuesday">Tuesday</option>
+          <option value="wednesday">Wednesday</option>
+          <option value="thursday">Thursday</option>
+          <option value="friday">Friday</option>
+          <option value="saturday">Saturday</option>
+          <option value="sunday">Sunday</option>
+        </select>
+
+        <label for="section" class="form-label">Section:</label>
+        <select id="section" name="section" class="form-select" required>
+          <option value="armwrestling">Armwrestling</option>
+          <option value="football">Football</option>
+          <option value="basketball">Basketball</option>
+          <option value="volleyball">Volleyball</option>
+          <option value="fitness">Fitness</option>
+        </select>
+
+        <label for="time" class="form-label">Time:</label>
+        <select id="time" name="time" class="form-select" required>
+          <option value="10:00-11:50">10:00 - 11:50</option>
+          <option value="12:00-13:50">12:00 - 13:50</option>
+          <option value="14:00-15:50">14:00 - 15:50</option>
+          <option value="16:00-17:50">16:00 - 17:50</option>
+        </select>
+
+        <h3>If you have any questions or suggestions, please write below:</h3>
+        <textarea rows="4" name="message" class="form-textarea"></textarea>
+
+        <input type="reset" value="Reset" class="form-button">
+        <input type="submit" value="Submit" class="form-button submit-button">
+      </form>
+    </section>
+
+    <!-- Sections Information -->
+    <section id="armwrestling" class="section-info">
+      <h2>Armwrestling</h2>
+      <p>Details and schedule for Armwrestling sessions will be provided here.</p>
+    </section>
+
+    <section id="football" class="section-info">
+      <h2>Football</h2>
+      <p>Details and schedule for Football sessions will be provided here.</p>
+    </section>
+
+    <section id="basketball" class="section-info">
+      <h2>Basketball</h2>
+      <p>Details and schedule for Basketball sessions will be provided here.</p>
+    </section>
+
+    <section id="volleyball" class="section-info">
+      <h2>Volleyball</h2>
+      <p>Details and schedule for Volleyball sessions will be provided here.</p>
+    </section>
+
+    <section id="fitness" class="section-info">
+      <h2>Fitness</h2>
+      <p>Details and schedule for Fitness sessions will be provided here.</p>
+    </section>
+
+    <h4>Contact us:</h4>
+    <table class="contact-table">
+      <tr>
+        <th>Name</th>
+        <th>Phone</th>
+        <th>Email</th>
+      </tr>
+      <tr>
+        <td>Sultanbay.T</td>
+        <td>87051110101</td>
+        <td>sultan123@mail.ru</td>
+      </tr>
+      <tr>
+        <td>Assanali</td>
+        <td>87071110101</td>
+        <td>ASACHIa@mail.ru</td>
+      </tr>
+    </table>
+  </main>
+
+  <footer class="footer-section">
+    <p>Team members: Sultanbay.T, Assanali.B, Daryn.M</p>
+    <p>&copy; 2024 PE Booking System</p>
+  </footer>
+</body>
+</html>
