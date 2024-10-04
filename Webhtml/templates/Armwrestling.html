@@ -1,106 +1,143 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Armwrestling Program</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
   <style>
-    nav {
-      background-color: #333;
-      padding: 10px 0;
-    }
-    nav ul {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-      text-align: center;
-    }
-    nav ul li {
-      display: inline;
-      margin: 0 15px;
-    }
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-size: 18px;
-    }
-    nav ul li a:hover {
-      text-decoration: underline;
-    }
     body {
       font-family: Arial, sans-serif;
-      line-height: 1.6;
-      margin: 20px;
       background-color: #f4f4f4;
-    }
-    header {
-      text-align: center;
-      margin-bottom: 30px;
-    }
-    main {
-      max-width: 800px;
-      margin: 0 auto;
       padding: 20px;
-      background-color: #fff;
-      border-radius: 8px;
-      box-shadow: 0px 0px 10px 0px #000;
     }
-    h1 {
+
+    h1, h2 {
       color: #333;
     }
-    h2 {
-      color: #444;
-    }
-    p {
-      font-size: 18px;
-    }
+
     iframe {
       width: 100%;
       height: 400px;
       margin-top: 20px;
       border: none;
     }
-    a {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 10px 15px;
-      background-color: #333;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
-    }
-    a:hover {
-      background-color: #555;
-    }
-
   </style>
 </head>
+
 <body>
 
-<header>
+<header class="text-center mb-5">
   <h1>Armwrestling Program</h1>
-  <nav>
-      <ul>
-        <li><a href="/Armwrestling">Armwrestling</a></li>
-        <li><a href="/Basketball">Basketball</a></li>
-        <li><a href="/form">Registration on FE</a></li>
-        <!-- Add other links if necessary -->
-      </ul>
-    </nav>
+  <!-- Bootstrap Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mx-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="Armwrestling.html">Armwrestling</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Basketball.html">Basketball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Registration on FE</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
 </header>
 
-<main>
-  <h2>About the Program</h2>
-  <p>The Armwrestling program is designed to build upper body strength, endurance, and technique. Our expert trainers guide participants through various exercises and strategies to help them excel in armwrestling competitions. Whether you're a beginner or an advanced athlete, this program will help you improve your skills and reach your goals.</p>
+<!-- Bootstrap Grid Layout -->
+<main class="container bg-white p-4 shadow rounded">
+  <div class="row">
+    <div class="col">
+      <h2>About the Program</h2>
+      <p>The Armwrestling program is designed to build upper body strength, endurance, and technique. Our expert trainers guide participants through various exercises and strategies to help them excel in armwrestling competitions. Whether you're a beginner or an advanced athlete, this program will help you improve your skills and reach your goals.</p>
+    </div>
+  </div>
 
-  <h2>Watch a Training Session</h2>
-  <p>Below is a video showcasing one of our armwrestling training sessions, where participants are coached on technique, posture, and competition strategies:</p>
+  <!-- Bootstrap Carousel -->
+  <div id="armwrestlingCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://via.placeholder.com/800x400?text=Armwrestling+Competition+1" class="d-block w-100" alt="Armwrestling Competition 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/800x400?text=Armwrestling+Competition+2" class="d-block w-100" alt="Armwrestling Competition 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://via.placeholder.com/800x400?text=Armwrestling+Competition+3" class="d-block w-100" alt="Armwrestling Competition 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#armwrestlingCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#armwrestlingCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
 
-  <!-- Embedded YouTube Video -->
-  <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Armwrestling Training Session" allowfullscreen></iframe>
+  <!-- Bootstrap Cards Section -->
+  <div class="row mt-5">
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Strength+Training" class="card-img-top" alt="Strength Training">
+        <div class="card-body">
+          <h5 class="card-title">Strength Training</h5>
+          <p class="card-text">Enhance your upper body strength with specialized training sessions.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Armwrestling+Techniques" class="card-img-top" alt="Armwrestling Techniques">
+        <div class="card-body">
+          <h5 class="card-title">Armwrestling Techniques</h5>
+          <p class="card-text">Learn and master advanced techniques for competitive armwrestling.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://via.placeholder.com/300x200?text=Endurance+Building" class="card-img-top" alt="Endurance Building">
+        <div class="card-body">
+          <h5 class="card-title">Endurance Building</h5>
+          <p class="card-text">Improve your stamina and endurance for extended competitions.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <a href="index.html">Back to Program List</a>
+  <div class="row mt-4">
+    <div class="col">
+      <h2>Watch a Training Session</h2>
+      <p>Below is a video showcasing one of our armwrestling training sessions, where participants are coached on technique, posture, and competition strategies:</p>
+
+      <!-- Embedded YouTube Video -->
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Armwrestling Training Session"
+              allowfullscreen></iframe>
+
+      <!-- Bootstrap Button -->
+      <a href="form.html" class="btn btn-dark mt-3">Back to Program List</a>
+    </div>
+  </div>
 </main>
 
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
 </body>
+
 </html>
