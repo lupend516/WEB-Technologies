@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Preferences App</title>
+    <title>Astana IT University - Приложение с настройками пользователя</title>
     <style>
-        /* Basic Styling for Day/Night Mode and Responsive Layout */
+        /* Основное оформление для дневного/ночного режима и адаптивного интерфейса */
         body {
             font-family: Arial, sans-serif;
             transition: background-color 0.3s, color 0.3s;
@@ -14,54 +14,67 @@
             max-width: 600px;
             margin: 0 auto;
             padding: 20px;
+            text-align: center;
         }
         .dark-mode {
-            background-color: #333;
-            color: #f0f0f0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
         .light-mode {
-            background-color: #fff;
+            background-color: #f0f0f0;
             color: #333;
         }
         .button {
             padding: 10px 15px;
             margin: 5px;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0066cc;
+        }
+        h1 {
+            color: #004080;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>User Preferences App</h1>
+        <h1>Настройки пользователя - Astana IT University</h1>
 
-        <!-- Login Form -->
+        <!-- Форма входа -->
         <div id="loginForm">
-            <input type="text" id="username" placeholder="Enter Username">
-            <button class="button" onclick="login()">Login</button>
+            <input type="text" id="username" placeholder="Введите имя пользователя" style="padding: 8px; font-size: 16px;">
+            <button class="button" onclick="login()">Войти</button>
         </div>
 
-        <!-- Welcome Message and Preferences -->
+        <!-- Приветствие и настройки пользователя -->
         <div id="appContent" style="display: none;">
-            <h2>Welcome, <span id="userGreeting"></span></h2>
-            <button class="button" onclick="logout()">Logout</button>
+            <h2>Добро пожаловать, <span id="userGreeting"></span>!</h2>
+            <button class="button" onclick="logout()">Выйти</button>
 
-            <!-- Day/Night Mode Toggle -->
-            <div>
-                <button class="button" onclick="toggleMode()">Toggle Day/Night Mode</button>
+            <!-- Переключатель дневного/ночного режима -->
+            <div style="margin-top: 20px;">
+                <button class="button" onclick="toggleMode()">Переключить режим (День/Ночь)</button>
             </div>
 
-            <!-- Filter Option -->
-            <div>
-                <select id="filter" onchange="saveFilter()">
-                    <option value="all">All</option>
-                    <option value="favorites">Favorites</option>
-                    <option value="recent">Recent</option>
+            <!-- Опция фильтра -->
+            <div style="margin-top: 20px;">
+                <label for="filter" style="font-size: 16px;">Фильтр курсов:</label>
+                <select id="filter" onchange="saveFilter()" style="padding: 8px; font-size: 16px;">
+                    <option value="all">Все</option>
+                    <option value="favorites">Избранные</option>
+                    <option value="recent">Недавние</option>
                 </select>
             </div>
         </div>
     </div>
 
     <script>
-        // Check if user is already logged in
+        // Проверка, вошел ли пользователь
         window.onload = function() {
             const savedUser = localStorage.getItem('username');
             if (savedUser) {
@@ -70,7 +83,7 @@
             applyPreferences();
         }
 
-        // Login Function
+        // Функция входа
         function login() {
             const username = document.getElementById('username').value;
             if (username) {
@@ -79,7 +92,7 @@
             }
         }
 
-        // Logout Function
+        // Функция выхода
         function logout() {
             localStorage.removeItem('username');
             localStorage.removeItem('filter');
@@ -88,7 +101,7 @@
             document.getElementById('loginForm').style.display = 'block';
         }
 
-        // Display App Content after Login
+        // Показ содержимого приложения после входа
         function displayAppContent(username) {
             document.getElementById('userGreeting').innerText = username;
             document.getElementById('loginForm').style.display = 'none';
@@ -96,25 +109,25 @@
             applyPreferences();
         }
 
-        // Toggle between Day/Night Mode
+        // Переключение дневного/ночного режима
         function toggleMode() {
             const mode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('mode', mode);
             applyPreferences();
         }
 
-        // Apply User Preferences (Day/Night Mode and Filter)
+        // Применение пользовательских настроек (режим и фильтр)
         function applyPreferences() {
-            // Day/Night Mode
+            // Дневной/ночной режим
             const mode = localStorage.getItem('mode') || 'light';
             document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
 
-            // Filter Settings
+            // Настройки фильтра
             const savedFilter = localStorage.getItem('filter') || 'all';
             document.getElementById('filter').value = savedFilter;
         }
 
-        // Save Filter Selection
+        // Сохранение выбранного фильтра
         function saveFilter() {
             const selectedFilter = document.getElementById('filter').value;
             localStorage.setItem('filter', selectedFilter);
