@@ -58,18 +58,18 @@
 
             <!-- Переключатель дневного/ночного режима -->
             <div style="margin-top: 20px;">
-                <button class="button" onclick="toggleMode()">Change backgruond (light/dark)</button>
+                <button class="button" onclick="toggleMode()">Change background (light/dark)</button>
             </div>
 
             <!-- Опция фильтра -->
             <div style="margin-top: 20px;">
                 <label for="filter" style="font-size: 16px;">Фильтр курсов:</label>
                 <select id="filter" onchange="saveFilter()" style="padding: 8px; font-size: 16px;">
-                    <option value="all">All</option>
-                    <option value="favorites">Favorites</option>
-                    <option value="recent">Recent</option>
-                    <option value="faculties">Faculties</option>
-                    <option value="other">Other</option>
+                    <option value="Armwrestling">Armwrestling</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Football">Football</option>
+                    <option value="Volleyball">Volleyball</option>
                 </select>
             </div>
         </div>
@@ -91,6 +91,8 @@
             if (username) {
                 localStorage.setItem('username', username);
                 displayAppContent(username);
+            } else {
+                alert('Enter your login');
             }
         }
 
