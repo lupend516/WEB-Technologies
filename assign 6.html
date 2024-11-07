@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Astana IT University - Приложение с настройками пользователя</title>
+    <title>AITU login</title>
     <style>
         /* Основное оформление для дневного/ночного режима и адаптивного интерфейса */
         body {
@@ -43,18 +43,18 @@
 </head>
 <body>
     <div class="container">
-        <h1>Настройки пользователя - Astana IT University</h1>
+        <h1>AITU login</h1>
 
         <!-- Форма входа -->
         <div id="loginForm">
-            <input type="text" id="username" placeholder="Введите имя пользователя" style="padding: 8px; font-size: 16px;">
-            <button class="button" onclick="login()">Войти</button>
+            <input type="text" id="username" placeholder="Enter your username" style="padding: 8px; font-size: 16px;">
+            <button class="button" onclick="login()">login</button>
         </div>
 
         <!-- Приветствие и настройки пользователя -->
         <div id="appContent" style="display: none;">
             <h2>Добро пожаловать, <span id="userGreeting"></span>!</h2>
-            <button class="button" onclick="logout()">Выйти</button>
+            <button class="button" onclick="logout()">logout</button>
 
             <!-- Переключатель дневного/ночного режима -->
             <div style="margin-top: 20px;">
@@ -65,9 +65,11 @@
             <div style="margin-top: 20px;">
                 <label for="filter" style="font-size: 16px;">Фильтр курсов:</label>
                 <select id="filter" onchange="saveFilter()" style="padding: 8px; font-size: 16px;">
-                    <option value="all">Все</option>
-                    <option value="favorites">Избранные</option>
-                    <option value="recent">Недавние</option>
+                    <option value="all">All</option>
+                    <option value="favorites">favorites</option>
+                    <option value="recent">recent</option>
+                    <option value="faculties">faculties</option>
+                    <option value="all">all</option>
                 </select>
             </div>
         </div>
