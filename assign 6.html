@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Preferences App</title>
     <style>
+        /* Основное оформление для дневного/ночного режима и адаптивного интерфейса */
         body {
             font-family: Arial, sans-serif;
             transition: background-color 0.3s, color 0.3s;
@@ -52,14 +53,10 @@
             margin-top: 10px;
             color: #777;
         }
-        #photoDisplay {
+        .profile-image {
             margin-top: 20px;
-        }
-        #photoDisplay img {
-            max-width: 100%;
-            max-height: 300px;
-            border-radius: 8px;
-            margin-top: 10px;
+            max-width: 100px;
+            border-radius: 50%;
         }
     </style>
 </head>
@@ -71,6 +68,9 @@
         <div id="loginForm">
             <input type="text" id="username" placeholder="Введите имя пользователя" style="padding: 8px; font-size: 16px;">
             <button class="button" onclick="login()">Войти</button>
+            <!-- Изображение под полем регистрации -->
+            <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sYxbved6jR9bv1HtpGFMQ6NpbsR-TRBo6na0=s900-c-k-c0x00ffffff-no-rj" 
+                 alt="Profile Image" class="profile-image">
         </div>
 
         <!-- Приветственное сообщение и настройки пользователя -->
@@ -93,13 +93,6 @@
                 </select>
                 <div class="filter-info" id="filterInfo">Последний фильтр: <span id="lastFilter">не выбран</span></div>
             </div>
-
-            <!-- Загрузка и отображение фотографии -->
-            <div id="photoSection" style="margin-top: 20px;">
-                <label for="photoUpload" style="font-size: 16px;">Загрузить фотографию:</label>
-                <input type="file" id="photoUpload" accept="image/*" onchange="displayPhoto()">
-                <div id="photoDisplay"></div>
-            </div>
         </div>
 
         <!-- Уведомление о действиях пользователя -->
@@ -107,6 +100,7 @@
     </div>
 
     <script>
+        // Проверка, вошел ли пользователь
         window.onload = function() {
             const savedUser = localStorage.getItem('username');
             if (savedUser) {
@@ -116,6 +110,7 @@
             applyPreferences();
         }
 
+        // Функция входа
         function login() {
             const username = document.getElementById('username').value;
             if (username) {
@@ -127,6 +122,7 @@
             }
         }
 
+        // Функция выхода
         function logout() {
             localStorage.removeItem('username');
             localStorage.removeItem('filter');
@@ -136,6 +132,7 @@
             showNotification("Выход выполнен успешно!");
         }
 
+        // Показ содержимого приложения после входа
         function displayAppContent(username) {
             document.getElementById('userGreeting').innerText = username;
             document.getElementById('loginForm').style.display = 'none';
@@ -143,6 +140,7 @@
             applyPreferences();
         }
 
+        // Переключение дневного/ночного режима
         function toggleMode() {
             const mode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('mode', mode);
@@ -150,15 +148,19 @@
             showNotification(`Режим изменен на ${mode === 'dark' ? 'ночной' : 'дневной'}`);
         }
 
+        // Применение пользовательских настроек (режим и фильтр)
         function applyPreferences() {
+            // Дневной/ночной режим
             const mode = localStorage.getItem('mode') || 'light';
             document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
 
+            // Настройки фильтра
             const savedFilter = localStorage.getItem('filter') || 'all';
             document.getElementById('filter').value = savedFilter;
             document.getElementById('lastFilter').innerText = savedFilter;
         }
 
+        // Сохранение выбранного фильтра
         function saveFilter() {
             const selectedFilter = document.getElementById('filter').value;
             localStorage.setItem('filter', selectedFilter);
@@ -166,7 +168,7 @@
             showNotification("Фильтр сохранен");
         }
 
-        // Показ уведомления
+        // Показ уведомления для пользователя
         function showNotification(message, type = "success") {
             const notification = document.getElementById('notification');
             notification.innerText = message;
@@ -175,27 +177,6 @@
             setTimeout(() => {
                 notification.classList.remove('show');
             }, 3000);
-        }
-
-        // Отображение загруженной фотографии
-        function displayPhoto() {
-            const fileInput = document.getElementById('photoUpload');
-            const photoDisplay = document.getElementById('photoDisplay');
-            photoDisplay.innerHTML = ""; // Очистить предыдущее изображение
-
-            const file = fileInput.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const img = document.createElement('img');
-                    img.src = e.target.result;
-                    photoDisplay.appendChild(img);
-                }
-                reader.readAsDataURL(file);
-                showNotification("Фотография загружена");
-            } else {
-                showNotification("Выберите файл", "error");
-            }
         }
     </script>
 </body>
