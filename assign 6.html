@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Preferences App</title>
+    <title>Astana IT University - Приложение с настройками пользователя</title>
     <style>
         /* Основное оформление для дневного/ночного режима и адаптивного интерфейса */
         body {
@@ -17,63 +17,41 @@
             text-align: center;
         }
         .dark-mode {
-            background-color: #333;
-            color: #f0f0f0;
+            background-color: #1a1a1a;
+            color: #e0e0e0;
         }
         .light-mode {
-            background-color: #fff;
+            background-color: #f0f0f0;
             color: #333;
         }
         .button {
             padding: 10px 15px;
             margin: 5px;
-            background-color: #4CAF50;
-            color: white;
+            background-color: #004080;
+            color: #fff;
             border: none;
-            border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            transition: background-color 0.3s;
         }
         .button:hover {
-            background-color: #45a049;
+            background-color: #0066cc;
         }
-        .notification {
-            padding: 10px;
-            color: #4CAF50;
-            font-weight: bold;
-            display: none;
-            margin-top: 10px;
-        }
-        .notification.show {
-            display: block;
-        }
-        .filter-info {
-            font-size: 14px;
-            margin-top: 10px;
-            color: #777;
-        }
-        .profile-image {
-            margin-top: 20px;
-            max-width: 100px;
-            border-radius: 50%;
+        h1 {
+            color: #004080;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>User Preferences App</h1>
+        <h1>Настройки пользователя - Astana IT University</h1>
 
         <!-- Форма входа -->
         <div id="loginForm">
             <input type="text" id="username" placeholder="Введите имя пользователя" style="padding: 8px; font-size: 16px;">
             <button class="button" onclick="login()">Войти</button>
-            <!-- Изображение под полем регистрации -->
-            <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sYxbved6jR9bv1HtpGFMQ6NpbsR-TRBo6na0=s900-c-k-c0x00ffffff-no-rj" 
-                 alt="Profile Image" class="profile-image">
         </div>
 
-        <!-- Приветственное сообщение и настройки пользователя -->
+        <!-- Приветствие и настройки пользователя -->
         <div id="appContent" style="display: none;">
             <h2>Добро пожаловать, <span id="userGreeting"></span>!</h2>
             <button class="button" onclick="logout()">Выйти</button>
@@ -91,12 +69,8 @@
                     <option value="favorites">Избранные</option>
                     <option value="recent">Недавние</option>
                 </select>
-                <div class="filter-info" id="filterInfo">Последний фильтр: <span id="lastFilter">не выбран</span></div>
             </div>
         </div>
-
-        <!-- Уведомление о действиях пользователя -->
-        <div id="notification" class="notification">Действие выполнено!</div>
     </div>
 
     <script>
@@ -105,7 +79,6 @@
             const savedUser = localStorage.getItem('username');
             if (savedUser) {
                 displayAppContent(savedUser);
-                showNotification(`Добро пожаловать, ${savedUser}!`);
             }
             applyPreferences();
         }
@@ -116,9 +89,6 @@
             if (username) {
                 localStorage.setItem('username', username);
                 displayAppContent(username);
-                showNotification("Вход выполнен успешно!");
-            } else {
-                showNotification("Введите имя пользователя", "error");
             }
         }
 
@@ -129,7 +99,6 @@
             localStorage.removeItem('mode');
             document.getElementById('appContent').style.display = 'none';
             document.getElementById('loginForm').style.display = 'block';
-            showNotification("Выход выполнен успешно!");
         }
 
         // Показ содержимого приложения после входа
@@ -145,7 +114,6 @@
             const mode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('mode', mode);
             applyPreferences();
-            showNotification(`Режим изменен на ${mode === 'dark' ? 'ночной' : 'дневной'}`);
         }
 
         // Применение пользовательских настроек (режим и фильтр)
@@ -157,26 +125,12 @@
             // Настройки фильтра
             const savedFilter = localStorage.getItem('filter') || 'all';
             document.getElementById('filter').value = savedFilter;
-            document.getElementById('lastFilter').innerText = savedFilter;
         }
 
         // Сохранение выбранного фильтра
         function saveFilter() {
             const selectedFilter = document.getElementById('filter').value;
             localStorage.setItem('filter', selectedFilter);
-            document.getElementById('lastFilter').innerText = selectedFilter;
-            showNotification("Фильтр сохранен");
-        }
-
-        // Показ уведомления для пользователя
-        function showNotification(message, type = "success") {
-            const notification = document.getElementById('notification');
-            notification.innerText = message;
-            notification.style.color = type === "success" ? "#4CAF50" : "#f44336";
-            notification.classList.add('show');
-            setTimeout(() => {
-                notification.classList.remove('show');
-            }, 3000);
         }
     </script>
 </body>
