@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Preferences App</title>
+    <style>
+        /* Basic Styling for Day/Night Mode and Responsive Layout */
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .dark-mode {
+            background-color: #333;
+            color: #f0f0f0;
+        }
+        .light-mode {
+            background-color: #fff;
+            color: #333;
+        }
+        .button {
+            padding: 10px 15px;
+            margin: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>User Preferences App</h1>
+
+        <!-- Login Form -->
+        <div id="loginForm">
+            <input type="text" id="username" placeholder="Enter Username">
+            <button class="button" onclick="login()">Login</button>
+        </div>
+
+        <!-- Welcome Message and Preferences -->
+        <div id="appContent" style="display: none;">
+            <h2>Welcome, <span id="userGreeting"></span></h2>
+            <button class="button" onclick="logout()">Logout</button>
+
+            <!-- Day/Night Mode Toggle -->
+            <div>
+                <button class="button" onclick="toggleMode()">Toggle Day/Night Mode</button>
+            </div>
+
+            <!-- Filter Option -->
+            <div>
+                <select id="filter" onchange="saveFilter()">
+                    <option value="all">All</option>
+                    <option value="favorites">Favorites</option>
+                    <option value="recent">Recent</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Check if user is already logged in
+        window.onload = function() {
+            const savedUser = localStorage.getItem('username');
+            if (savedUser) {
+                displayAppContent(savedUser);
+            }
+            applyPreferences();
+        }
+
+        // Login Function
+        function login() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                localStorage.setItem('username', username);
+                displayAppContent(username);
+            }
+        }
+
+        // Logout Function
+        function logout() {
+            localStorage.removeItem('username');
+            localStorage.removeItem('filter');
+            localStorage.removeItem('mode');
+            document.getElementById('appContent').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+
+        // Display App Content after Login
+        function displayAppContent(username) {
+            document.getElementById('userGreeting').innerText = username;
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('appContent').style.display = 'block';
+            applyPreferences();
+        }
+
+        // Toggle between Day/Night Mode
+        function toggleMode() {
+            const mode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+            localStorage.setItem('mode', mode);
+            applyPreferences();
+        }
+
+        // Apply User Preferences (Day/Night Mode and Filter)
+        function applyPreferences() {
+            // Day/Night Mode
+            const mode = localStorage.getItem('mode') || 'light';
+            document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
+
+            // Filter Settings
+            const savedFilter = localStorage.getItem('filter') || 'all';
+            document.getElementById('filter').value = savedFilter;
+        }
+
+        // Save Filter Selection
+        function saveFilter() {
+            const selectedFilter = document.getElementById('filter').value;
+            localStorage.setItem('filter', selectedFilter);
+        }
+    </script>
+</body>
+</html>
