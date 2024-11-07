@@ -37,6 +37,21 @@
         .button:hover {
             background-color: #45a049;
         }
+        .notification {
+            padding: 10px;
+            color: #4CAF50;
+            font-weight: bold;
+            display: none;
+            margin-top: 10px;
+        }
+        .notification.show {
+            display: block;
+        }
+        .filter-info {
+            font-size: 14px;
+            margin-top: 10px;
+            color: #777;
+        }
         #photoDisplay {
             margin-top: 20px;
         }
@@ -51,15 +66,34 @@
 <body>
     <div class="container">
         <h1>User Preferences App</h1>
-        
+
+        <!-- Форма входа -->
+        <div id="loginForm">
+            <input type="text" id="username" placeholder="Введите имя пользователя" style="padding: 8px; font-size: 16px;">
+            <button class="button" onclick="login()">Войти</button>
+        </div>
+
         <!-- Приветственное сообщение и настройки пользователя -->
         <div id="appContent" style="display: none;">
             <h2>Добро пожаловать, <span id="userGreeting"></span>!</h2>
             <button class="button" onclick="logout()">Выйти</button>
+
             <!-- Переключатель дневного/ночного режима -->
             <div style="margin-top: 20px;">
                 <button class="button" onclick="toggleMode()">Переключить режим (День/Ночь)</button>
             </div>
+
+            <!-- Опция фильтра -->
+            <div style="margin-top: 20px;">
+                <label for="filter" style="font-size: 16px;">Фильтр курсов:</label>
+                <select id="filter" onchange="saveFilter()" style="padding: 8px; font-size: 16px;">
+                    <option value="all">Все</option>
+                    <option value="favorites">Избранные</option>
+                    <option value="recent">Недавние</option>
+                </select>
+                <div class="filter-info" id="filterInfo">Последний фильтр: <span id="lastFilter">не выбран</span></div>
+            </div>
+
             <!-- Загрузка и отображение фотографии -->
             <div id="photoSection" style="margin-top: 20px;">
                 <label for="photoUpload" style="font-size: 16px;">Загрузить фотографию:</label>
@@ -68,12 +102,8 @@
             </div>
         </div>
 
-        <!-- Статическое изображение -->
-        <div style="margin-top: 30px;">
-            <h3>Изображение Astana IT University:</h3>
-            <img src="https://yt3.ggpht.com/ytc/AMLnZu_0sYxbved6jR9bv1HtpGFMQ6NpbsR-TRBo6na0=s900-c-k-c0x00ffffff-no-rj" 
-                 alt="Astana IT University" style="max-width: 100%; border-radius: 8px;">
-        </div>
+        <!-- Уведомление о действиях пользователя -->
+        <div id="notification" class="notification">Действие выполнено!</div>
     </div>
 
     <script>
@@ -81,8 +111,20 @@
             const savedUser = localStorage.getItem('username');
             if (savedUser) {
                 displayAppContent(savedUser);
+                showNotification(`Добро пожаловать, ${savedUser}!`);
             }
             applyPreferences();
+        }
+
+        function login() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                localStorage.setItem('username', username);
+                displayAppContent(username);
+                showNotification("Вход выполнен успешно!");
+            } else {
+                showNotification("Введите имя пользователя", "error");
+            }
         }
 
         function logout() {
@@ -91,6 +133,7 @@
             localStorage.removeItem('mode');
             document.getElementById('appContent').style.display = 'none';
             document.getElementById('loginForm').style.display = 'block';
+            showNotification("Выход выполнен успешно!");
         }
 
         function displayAppContent(username) {
@@ -104,17 +147,41 @@
             const mode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
             localStorage.setItem('mode', mode);
             applyPreferences();
+            showNotification(`Режим изменен на ${mode === 'dark' ? 'ночной' : 'дневной'}`);
         }
 
         function applyPreferences() {
             const mode = localStorage.getItem('mode') || 'light';
             document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
+
+            const savedFilter = localStorage.getItem('filter') || 'all';
+            document.getElementById('filter').value = savedFilter;
+            document.getElementById('lastFilter').innerText = savedFilter;
         }
 
+        function saveFilter() {
+            const selectedFilter = document.getElementById('filter').value;
+            localStorage.setItem('filter', selectedFilter);
+            document.getElementById('lastFilter').innerText = selectedFilter;
+            showNotification("Фильтр сохранен");
+        }
+
+        // Показ уведомления
+        function showNotification(message, type = "success") {
+            const notification = document.getElementById('notification');
+            notification.innerText = message;
+            notification.style.color = type === "success" ? "#4CAF50" : "#f44336";
+            notification.classList.add('show');
+            setTimeout(() => {
+                notification.classList.remove('show');
+            }, 3000);
+        }
+
+        // Отображение загруженной фотографии
         function displayPhoto() {
             const fileInput = document.getElementById('photoUpload');
             const photoDisplay = document.getElementById('photoDisplay');
-            photoDisplay.innerHTML = "";
+            photoDisplay.innerHTML = ""; // Очистить предыдущее изображение
 
             const file = fileInput.files[0];
             if (file) {
@@ -125,6 +192,9 @@
                     photoDisplay.appendChild(img);
                 }
                 reader.readAsDataURL(file);
+                showNotification("Фотография загружена");
+            } else {
+                showNotification("Выберите файл", "error");
             }
         }
     </script>
