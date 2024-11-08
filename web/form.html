@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register for a Class</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header>
+        <h1>PE Class Booking Platform</h1>
+        <nav>
+            <ul>
+                <li><a href="Armwrestling.html">Armwrestling</a></li>
+                <li><a href="Basketball.html">Basketball</a></li>
+                <li><a href="Fitness.html">Fitness</a></li>
+                <li><a href="Football.html">Football</a></li>
+                <li><a href="Volleyball.html">Volleyball</a></li>
+                <li><a href="form.html">Register</a></li>
+                <li><a href="login.html">Logout</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main class="main-content">
+        <section id="registration-form">
+            <h2>Register for a PE Class</h2>
+            <p>Please fill out the form below to reserve your spot:</p>
+            <form action="success.html" method="post">
+                <label for="fname">First Name:</label>
+                <input type="text" id="fname" name="fname" required>
+
+                <label for="lname">Last Name:</label>
+                <input type="text" id="lname" name="lname" required>
+
+                <label for="segroup">Group:</label>
+                <select id="segroup" name="segroup" required>
+                    <option value="SE-2301">SE-2301</option>
+                    <option value="SE-2302">SE-2302</option>
+                    <option value="SE-2303">SE-2303</option>
+                </select>
+
+                <label for="weekday">Weekday:</label>
+                <select id="weekday" name="weekday" required>
+                    <option value="Monday">Monday</option>
+                    <option value="Wednesday">Wednesday</option>
+                    <option value="Friday">Friday</option>
+                </select>
+
+                <label for="section">Section:</label>
+                <select id="section" name="section" required>
+                    <option value="Armwrestling">Armwrestling</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Volleyball">Volleyball</option>
+                </select>
+
+                <label for="rating">Rate the Class:</label>
+                <div id="rating-stars">
+                    <span class="star" data-value="1">★</span>
+                    <span class="star" data-value="2">★</span>
+                    <span class="star" data-value="3">★</span>
+                    <span class="star" data-value="4">★</span>
+                    <span class="star" data-value="5">★</span>
+                </div>
+
+                <div class="button-group">
+                    <input type="reset" value="Reset" class="btn">
+                    <input type="submit" value="Submit" class="btn btn-primary">
+                </div>
+            </form>
+        </section>
+        <button id="toggle-theme" class="btn">Toggle Theme</button>
+        <button id="show-next-session" class="btn">Show Next Session Time</button>
+        <button id="show-more" class="btn">Read More</button>
+        <p id="extra-info" class="hidden">Here is some additional information about the PE sessions and tips for better performance.</p>
+    </main>
+    <footer>
+        <p>PE Booking System © 2024</p>
+    </footer>
+</body>
+</html>

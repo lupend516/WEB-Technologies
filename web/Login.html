@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Astana IT University</title>
+    <style>
+        /* Основное оформление для дневного/ночного режима и адаптивного интерфейса */
+        body {
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .dark-mode {
+            background-color: #1a1a1a;
+            color: #e0e0e0;
+        }
+        .light-mode {
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .button {
+            padding: 10px 15px;
+            margin: 5px;
+            background-color: #004080;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .button:hover {
+            background-color: #0066cc;
+        }
+        h1 {
+            color: #004080;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Astana IT University</h1>
+
+        <!-- Форма входа -->
+        <div id="loginForm">
+            <input type="text" id="username" placeholder="Enter your username" style="padding: 8px; font-size: 16px;">
+            <button class="button" onclick="login()">login</button>
+        </div>
+
+        <!-- Приветствие и настройки пользователя -->
+        <div id="appContent" style="display: none;">
+            <h2>Welcome, <span id="userGreeting"></span>!</h2>
+            <button class="button" onclick="logout()">logout</button>
+
+            <!-- Переключатель дневного/ночного режима -->
+            <div style="margin-top: 20px;">
+                <button class="button" onclick="toggleMode()">Change background (light/dark)</button>
+            </div>
+
+            <!-- Опция фильтра и кнопка перехода -->
+            <div style="margin-top: 20px;">
+                <label for="filter" style="font-size: 16px;">Courses:</label>
+                <select id="filter" onchange="saveFilter()" style="padding: 8px; font-size: 16px;">
+                    <option value="Armwrestling">Armwrestling</option>
+                    <option value="Basketball">Basketball</option>
+                    <option value="Fitness">Fitness</option>
+                    <option value="Football">Football</option>
+                    <option value="Volleyball">Volleyball</option>
+                </select>
+                <button class="button" onclick="goToCourse()">Go to Course</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Проверка, вошел ли пользователь
+        window.onload = function() {
+            const savedUser = localStorage.getItem('username');
+            if (savedUser) {
+                displayAppContent(savedUser);
+            }
+            applyPreferences();
+        }
+
+        // Функция входа
+        function login() {
+            const username = document.getElementById('username').value;
+            if (username) {
+                localStorage.setItem('username', username);
+                displayAppContent(username);
+            } else {
+                alert('Enter your login');
+            }
+        }
+
+        // Функция выхода
+        function logout() {
+            localStorage.removeItem('username');
+            localStorage.removeItem('filter');
+            localStorage.removeItem('mode');
+            document.getElementById('appContent').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+
+        // Показ содержимого приложения после входа
+        function displayAppContent(username) {
+            document.getElementById('userGreeting').innerText = username;
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('appContent').style.display = 'block';
+            applyPreferences();
+        }
+
+        // Переключение дневного/ночного режима
+        function toggleMode() {
+            const mode = document.body.classList.contains('dark-mode') ? 'light' : 'dark';
+            localStorage.setItem('mode', mode);
+            applyPreferences();
+        }
+
+        // Применение пользовательских настроек (режим и фильтр)
+        function applyPreferences() {
+            // Дневной/ночной режим
+            const mode = localStorage.getItem('mode') || 'light';
+            document.body.className = mode === 'dark' ? 'dark-mode' : 'light-mode';
+
+            // Настройки фильтра
+            const savedFilter = localStorage.getItem('filter') || 'all';
+            document.getElementById('filter').value = savedFilter;
+        }
+
+        // Сохранение выбранного фильтра
+        function saveFilter() {
+            const selectedFilter = document.getElementById('filter').value;
+            localStorage.setItem('filter', selectedFilter);
+        }
+
+        // Переход на страницу выбранного курса
+        function goToCourse() {
+            const course = document.getElementById('filter').value;
+            window.location.href = `${course.toLowerCase()}.html`;
+        }
+    </script>
+</body>
+</html>
