@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fitness Program</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+
+<body>
+
+<header class="text-center mb-5">
+  <h1>Fitness Program</h1>
+  <!-- Bootstrap Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="Armwrestling.html">Armwrestling</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Basketball.html">Basketball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Fitness.html">Fitness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Football.html">Football</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Volleyball.html">Volleyball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Registration on FE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Login.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="container bg-bright p-4 shadow rounded">
+  <button id="toggle-theme" class="btn">Toggle Theme</button>
+  <h2>About the Program</h2>
+  <p>Our Fitness program is designed to help participants achieve their health and wellness goals through structured exercise routines. The program includes strength training, cardio workouts, flexibility exercises, and personalized coaching to help individuals improve their physical fitness, boost energy levels, and maintain a healthy lifestyle.</p>
+
+  <div class="row mt-5">
+    <div class="col">
+      <h2>Rate This Course</h2>
+      <div id="rating-stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Carousel -->
+  <div id="fitnessCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://i.ytimg.com/vi/kVlhID6KolA/maxresdefault.jpg" class="d-block w-100" alt="Fitness Session 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.ytimg.com/vi/w2tIEBSqCcg/maxresdefault.jpg" class="d-block w-100" alt="Fitness Session 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://i.ytimg.com/vi/FBwU2OK-S_g/maxresdefault.jpg" class="d-block w-100" alt="Fitness Session 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#fitnessCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#fitnessCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Bootstrap Cards Section -->
+  <div class="row mt-5">
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/hXZILrFiut8/maxresdefault.jpg" class="card-img-top" alt="Strength Training">
+        <div class="card-body">
+          <h5 class="card-title">Strength Training</h5>
+          <p class="card-text">Boost your strength with targeted weightlifting and resistance exercises.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://mail.kz/upload/media/3ace5d7738708ff74988b509a76abb9c.jpg" class="card-img-top" alt="Cardio Workouts">
+        <div class="card-body">
+          <h5 class="card-title">Cardio Workouts</h5>
+          <p class="card-text">Improve your endurance and heart health with high-energy cardio routines.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/yKFZwsOXPI0/maxresdefault.jpg" class="card-img-top" alt="Flexibility Exercises">
+        <div class="card-body">
+          <h5 class="card-title">Flexibility Exercises</h5>
+          <p class="card-text">Enhance your mobility and flexibility with targeted stretching routines.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <h2>Watch a Training Session</h2>
+      <p>Below is a video of one of our fitness training sessions, featuring different workouts, techniques, and guidance from our professional trainers:</p>
+
+      <!-- Embedded YouTube Video -->
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/UItWltVZZmE" title="Fitness Training Session" allowfullscreen></iframe>
+      </div>
+
+      <!-- Back Button -->
+      <a href="WEB1.html" class="btn btn-dark mt-3">Back to Program List</a>
+    </div>
+  </div>
+</main>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const stars = document.querySelectorAll("#rating-stars .star");
+
+      stars.forEach((star, index) => {
+          star.addEventListener("click", () => {
+              // Убираем выделение со всех звезд
+              stars.forEach(s => s.classList.remove("selected"));
+
+              // Выделяем звезды до текущей
+              for (let i = 0; i <= index; i++) {
+                  stars[i].classList.add("selected");
+              }
+
+              // Выводим рейтинг в консоль
+              console.log(`You rated this course: ${index + 1} stars`);
+          });
+      });
+  });
+</script>
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+
+</html>

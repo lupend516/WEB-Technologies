@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Volleyball Program</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+
+</head>
+
+<body>
+
+<header class="text-center mb-5">
+  <h1>Volleyball Program</h1>
+  <!-- Bootstrap Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+              aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" href="Armwrestling.html">Armwrestling</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Basketball.html">Basketball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Fitness.html">Fitness</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Football.html">Football</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Volleyball.html">Volleyball</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="form.html">Registration on FE</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="Login.html">Logout</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<!-- Main Content -->
+<main class="container bg-bright p-4 shadow rounded">
+  <button id="toggle-theme" class="btn">Toggle Theme</button>
+  <h2>About the Program</h2>
+  <p>Our Volleyball program is designed to enhance participants' athletic abilities, teamwork, and strategy on the court. From mastering serving, passing, setting, and spiking, to building endurance and coordination, this program offers a comprehensive experience for players at any skill level.</p>
+
+  <div class="row mt-5">
+    <div class="col">
+      <h2>Rate This Course</h2>
+      <div id="rating-stars">
+        <span class="star" data-value="1">★</span>
+        <span class="star" data-value="2">★</span>
+        <span class="star" data-value="3">★</span>
+        <span class="star" data-value="4">★</span>
+        <span class="star" data-value="5">★</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap Carousel -->
+  <div id="volleyballCarousel" class="carousel slide mt-4" data-bs-ride="carousel">
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="https://avatars.mds.yandex.net/i?id=1015ba0a68b5eada9d8f06605f296786_l-5234477-images-thumbs&n=13" class="d-block w-100" alt="Volleyball Game 1">
+      </div>
+      <div class="carousel-item">
+        <img src="https://avatars.mds.yandex.net/i?id=d6883b891be35a6ef21bebb1f1cf3b21_l-6250997-images-thumbs&n=13" class="d-block w-100" alt="Volleyball Game 2">
+      </div>
+      <div class="carousel-item">
+        <img src="https://avatars.mds.yandex.net/i?id=d5bd0e5dc217356a922d7944ac5ab36c_l-8564741-images-thumbs&n=13" class="d-block w-100" alt="Volleyball Game 3">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#volleyballCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#volleyballCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- Bootstrap Cards Section -->
+  <div class="row mt-5">
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/2lgo1QICxaE/maxresdefault.jpg" class="card-img-top" alt="Serving Drills">
+        <div class="card-body">
+          <h5 class="card-title">Serving Drills</h5>
+          <p class="card-text">Improve your serving accuracy and power with specialized drills.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/K9X_wB1Yu84/maxresdefault.jpg" class="card-img-top" alt="Passing Techniques">
+        <div class="card-body">
+          <h5 class="card-title">Passing Techniques</h5>
+          <p class="card-text">Master the art of passing to ensure smooth teamwork on the court.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <div class="card">
+        <img src="https://i.ytimg.com/vi/X0vj9LQPK9w/maxresdefault.jpg" class="card-img-top" alt="Spiking Skills">
+        <div class="card-body">
+          <h5 class="card-title">Spiking Skills</h5>
+          <p class="card-text">Enhance your spiking power and precision with advanced techniques.</p>
+          <a href="#" class="btn btn-primary">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-4">
+    <div class="col">
+      <h2>Watch a Training Session</h2>
+      <p>Below is a video of one of our volleyball training sessions, showcasing participants practicing drills, team play, and receiving expert coaching:</p>
+
+      <!-- Embedded YouTube Video -->
+      <div class="ratio ratio-16x9">
+        <iframe src="https://www.youtube.com/embed/aHxchz4N_w4" title="Volleyball Training Session" allowfullscreen></iframe>
+      </div>
+
+      <!-- Back Button -->
+      <a href="WEB1.html" class="btn btn-dark mt-3">Back to Program List</a>
+    </div>
+  </div>
+</main>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+      const stars = document.querySelectorAll("#rating-stars .star");
+
+      stars.forEach((star, index) => {
+          star.addEventListener("click", () => {
+              // Убираем выделение со всех звезд
+              stars.forEach(s => s.classList.remove("selected"));
+
+              // Выделяем звезды до текущей
+              for (let i = 0; i <= index; i++) {
+                  stars[i].classList.add("selected");
+              }
+
+              // Выводим рейтинг в консоль
+              console.log(`You rated this course: ${index + 1} stars`);
+          });
+      });
+  });
+</script>
+<!-- Bootstrap JS and Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+</body>
+
+</html>
